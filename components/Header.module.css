@@ -1,0 +1,62 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand h1 { font-size: 17px; font-weight: 650; line-height: 1.2; }
+.brand p { font-size: 12px; color: var(--muted); }
+.logo {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--critical-bg); color: var(--critical); font-size: 18px;
+}
+
+.status { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 11px; border-radius: 999px;
+  font-size: 12px; font-weight: 600;
+}
+.pillDot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.safe { background: var(--safe-bg); color: var(--safe); }
+.elevated { background: var(--warning-bg); color: var(--warning); }
+.critical { background: var(--critical-bg); color: var(--critical); }
+.critical .pillDot { animation: pulse 1s infinite; }
+
+.agent { font-size: 12px; color: var(--warning); font-weight: 600; }
+
+.conn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.ago { font-variant-numeric: tabular-nums; }
+.connDot { width: 7px; height: 7px; border-radius: 50%; }
+.connDot.mock { background: var(--warning); }
+.connDot.live { background: var(--safe); animation: pulse 1.6s infinite; }
+.connDot.offline { background: var(--critical); }
+
+.controls { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.select {
+  font: inherit; font-size: 13px;
+  padding: 8px 10px; border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel); color: var(--foreground);
+}
+.spike {
+  font: inherit; font-size: 14px; font-weight: 700;
+  padding: 10px 18px; border-radius: 9px; border: none;
+  background: var(--critical); color: #fff; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(229, 72, 77, 0.35);
+  transition: transform 0.1s, opacity 0.2s;
+}
+.spike:hover:not(:disabled) { transform: translateY(-1px); }
+.spike:disabled { opacity: 0.6; cursor: progress; box-shadow: none; }
+
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+@keyframes pulse { 50% { opacity: 0.3; } }
